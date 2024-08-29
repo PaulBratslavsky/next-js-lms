@@ -1,33 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 88%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 88%;
+
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 88%;
+
+    --primary: 308 79% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 88%;
+
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 58%;
+
+    --accent: 0 0% 17%;
+    --accent-foreground: 0 0% 88%;
+
+    --destructive: 349 52% 61%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 23%;
+    --input: 0 0% 23%;
+    --ring: 308 79% 51%;
+
+    --radius: 1.71rem;
   }
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Poppins', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+
+/******************************************* 
+  Rich Text Styles
+*******************************************/ 
+.rich-text {
+  @apply relative;
+}
+
+.rich-text article {
+  @apply absolute inset-0;
+}
+
+/* Headers */
+.rich-text article  h1 {
+  @apply text-3xl font-bold mb-9 text-secondary-foreground tracking-tight leading-normal;
+}
+
+.rich-text article  h2 {
+  @apply text-2xl font-bold mb-6 mt-2 tracking-tight leading-normal;
+}
+
+.rich-text article  h3 {
+  @apply text-xl font-bold mb-5 mt-2 tracking-tight leading-normal;
+}
+
+.rich-text article  h4 {
+  @apply text-lg font-bold mb-4 mt-2 tracking-tight leading-normal;
+}
+
+.rich-text article  h5 {
+  @apply text-sm font-bold mb-3 mt-2 tracking-tight leading-normal;
+}
+
+.rich-text article  h6 {
+  @apply text-xs font-bold mb-2 mt-2 tracking-tight leading-normal;
+}
+
+/* Horizontal rules */
+.rich-text article  hr {
+  @apply border-gray-300 my-8;
+}
+
+.rich-text article  a {
+  @apply underline;
+}
+
+/* Typographic replacements */
+.rich-text article  p {
+  @apply mb-10 text-xl leading-8 text-muted-foreground;
+}
+
+/* Emphasis */
+.rich-text article  strong {
+  @apply font-bold;
+}
+
+.rich-text article  em {
+  @apply italic;
+}
+
+.rich-text article  del {
+  @apply line-through;
+}
+
+/* Blockquotes */
+.rich-text article  blockquote {
+  @apply border-l-4 border-gray-400 pl-4 py-2 mb-4;
+}
+
+/* Lists */
+.rich-text article  ul {
+  @apply list-disc pl-4 mb-4;
+}
+
+.rich-text article  ol {
+  @apply list-decimal pl-4 mb-4;
+}
+
+.rich-text article  li {
+  @apply mb-2;
+}
+
+.rich-text article  li > ul {
+  @apply list-disc pl-4 mb-2;
+}
+
+.rich-text article  li > ol {
+  @apply list-decimal pl-4 mb-2;
+}
+
+/* Code blocks */
+.rich-text article  pre {
+  @apply font-mono bg-gray-900 text-gray-100 rounded-lg p-4  my-8 overflow-scroll;
+}
+
+.rich-text article  code {
+  @apply font-mono bg-pink-600 text-gray-100 rounded-sm px-2 py-0.5;
+}
+
+/* Tables */
+.rich-text article  table {
+  @apply w-full border-collapse border-gray-300 my-6;
+}
+
+.rich-text article  th {
+  @apply bg-gray-900 text-left py-2 px-4 font-semibold border-b border-gray-300;
+}
+
+.rich-text article  td {
+  @apply py-2 px-4 border-b border-gray-300;
+}
+
+/* Images */
+.rich-text article  img {
+  @apply w-full object-cover rounded-xl shadow-lg my-12;
+}
+
+/* Custom containers */
+.rich-text article  .warning {
+  @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
+}
+
+/******************************************* 
+  Rich Text Resources Styles
+*******************************************/ 
+
+.resources-text {
+  @apply relative;
+}
+
+.resources-text article {
+  @apply absolute inset-0;
+}
+
+/* Headers */
+.resources-text article  h1 {
+  @apply text-2xl font-bold mb-9 text-secondary-foreground tracking-tight leading-normal;
+}
+
+.resources-text article  h2 {
+  @apply text-2xl font-bold mb-6 mt-2 tracking-tight leading-normal;
+}
+
+.resources-text article  h3 {
+  @apply text-xl font-bold mb-5 mt-2 tracking-tight leading-normal;
+}
+
+.resources-text article  h4 {
+  @apply text-lg font-bold mb-4 mt-2 tracking-tight leading-normal;
+}
+
+.rich-text article  h5 {
+  @apply text-sm font-bold mb-3 mt-2 tracking-tight leading-normal;
+}
+
+.resources-text article  h6 {
+  @apply text-xs font-bold mb-2 mt-2 tracking-tight leading-normal;
+}
+
+/* Horizontal rules */
+.resources-text article  hr {
+  @apply border-gray-300 my-8;
+}
+
+.resources-text article  a {
+  @apply underline;
+}
+
+/* Typographic replacements */
+.resources-text article  p {
+  @apply mb-4 text-lg leading-8 text-muted-foreground;
+}
+
+/* Emphasis */
+.resources-text article  strong {
+  @apply font-bold text-secondary-foreground;
+}
+
+.resources-text article  em {
+  @apply italic;
+}
+
+.resources-text article  del {
+  @apply line-through;
+}
+
+/* Blockquotes */
+.resources-text article  blockquote {
+  @apply border-l-4 border-gray-400 pl-4 py-2 mb-4;
+}
+
+/* Lists */
+.resources-text article  ul {
+  @apply list-disc pl-4 mb-4;
+}
+
+.resources-text article  ol {
+  @apply list-decimal pl-4 mb-4;
+}
+
+.resources-text article  li {
+  @apply mb-2;
+}
+
+.resources-text article  li > ul {
+  @apply list-disc pl-4 mb-2;
+}
+
+.resources-text article  li > ol {
+  @apply list-decimal pl-4 mb-2;
+}
+
+/* Code blocks */
+.resources-text article  pre {
+  @apply font-mono bg-gray-900 text-gray-100 rounded-lg p-4  my-8 overflow-scroll;
+}
+
+.resources-text article  code {
+  @apply font-mono bg-pink-600 text-gray-100 rounded-sm px-2 py-0.5;
+}
+
+/* Tables */
+.resources-text article  table {
+  @apply w-full border-collapse border-gray-300 my-6;
+}
+
+.resources-text article  th {
+  @apply bg-gray-900 text-left py-2 px-4 font-semibold border-b border-gray-300;
+}
+
+.resources-text article  td {
+  @apply py-2 px-4 border-b border-gray-300;
+}
+
+/* Images */
+.resources-text article  img {
+  @apply w-full object-cover rounded-xl shadow-lg my-12;
+}
+
+/* Custom containers */
+.resources-text article  .warning {
+  @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
 }
