@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MobileNavbar } from "@/components/custom/mobile-navbar";
 import { NavLinkItem } from "@/components/custom/nav-link-item";
 import { UserNavButton } from "@/components/custom/user-nav-button";
+import ProviderAuth from "@/components/custom/provider-auth";
 
 // npx shadcn-ui@latest add button
 
@@ -56,12 +57,10 @@ export function Header({ user }: Readonly<StrapiUserMeProps>) {
         </nav>
         <div className="hidden items-center gap-2 md:flex">
           {user ? (
-            <UserNavButton user={null} />
+            <UserNavButton user={user} />
           ) : (
             <Button asChild>
-              <Link href="/signup" className="cursor-pointer">
-                Sign Up
-              </Link>
+              <ProviderAuth />
             </Button>
           )}
         </div>
