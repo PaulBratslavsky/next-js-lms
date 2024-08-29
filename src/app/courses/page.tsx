@@ -24,7 +24,7 @@ async function loader() {
   };
 }
 
-export default async function DashboardRoute() {
+export default async function CoursesRoute() {
   const { headerData, courseData, user } = await loader();
   const { data } = courseData;
 
@@ -45,7 +45,7 @@ export default async function DashboardRoute() {
 }
 
 const mockData = {
-  subHeading: "Continue From Where You Left Off",
-  heading: "Your Favorite Courses",
+  subHeading: "Expand Your Knowledge",
+  heading: "Our Featured Courses",
   text: "Whether you're a beginner or an expert, our curated courses are designed to help you level up your skills.",
 };

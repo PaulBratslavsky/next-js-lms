@@ -15,7 +15,7 @@ const config = {
 async function logoutAction() {
   "use server";
   cookies().set("jwt", "", { ...config, maxAge: 0 });
-  redirect("/");
+  redirect("/courses");
 }
 
 export function LogoutButton() {

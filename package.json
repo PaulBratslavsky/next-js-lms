@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
+    "@radix-ui/react-scroll-area": "^1.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.2",
     "@types/qs": "^6.9.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -21,8 +24,13 @@
     "qs": "^6.13.0",
     "react": "^19.0.0-rc-7771d3a7-20240827",
     "react-dom": "^19.0.0-rc-7771d3a7-20240827",
+    "react-markdown": "^9.0.1",
+    "react-player": "^2.16.0",
+    "react-resizable-panels": "^2.1.1",
+    "remark-gfm": "^4.0.0",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-debounce": "^10.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

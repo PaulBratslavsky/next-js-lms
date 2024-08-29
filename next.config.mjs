@@ -10,6 +10,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "deserving-harmony-9f5ca04daf.media.strapiapp.com",
+      },
+      {
+        protocol: "https",
         hostname: "placehold.co",
       },
       {

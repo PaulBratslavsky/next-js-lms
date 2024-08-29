@@ -29,5 +29,5 @@ export async function GET(request: Request, params: { params: { provider: string
 
   cookies().set("jwt", data.jwt, config);
 
-  return NextResponse.redirect(new URL("/dashboard", request.url));
+  return NextResponse.redirect(new URL("/courses", request.url));
 }

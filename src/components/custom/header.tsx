@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MobileNavbar } from "@/components/custom/mobile-navbar";
 import { NavLinkItem } from "@/components/custom/nav-link-item";
 import { UserNavButton } from "@/components/custom/user-nav-button";
-import ProviderAuth from "@/components/custom/provider-auth";
+import {ProviderAuth } from "@/components/custom/provider-auth";
 
 // npx shadcn-ui@latest add button
 
@@ -23,6 +23,8 @@ const navItems = [
     text: "Blog",
     isExternal: false,
   },
+
+
 ];
 
 export function Header({ user }: Readonly<StrapiUserMeProps>) {
@@ -51,9 +53,10 @@ export function Header({ user }: Readonly<StrapiUserMeProps>) {
               isExternal={navItem.isExternal}
               key={navItem.id}
             >
-              {navItem.text}{" "}
+              {navItem.text}
             </NavLinkItem>
           ))}
+          { user && <NavLinkItem href="/dashboard">My Courses</NavLinkItem>}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
           {user ? (

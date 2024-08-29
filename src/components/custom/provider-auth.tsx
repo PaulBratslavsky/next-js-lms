@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getStrapiURL } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-export default function ProviderAuth() {
+export function ProviderAuth() {
   const backendUrl = getStrapiURL();
   const path = "/api/connect/github";
   const url = new URL(backendUrl + path);

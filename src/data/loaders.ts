@@ -2,6 +2,7 @@ import qs from "qs";
 import { getStrapiURL } from "../lib/utils";
 
 const BASE_URL = getStrapiURL();
+
 export async function fetchData(url: string, authToken?: string) {
   const headers = {
     method: "GET",
