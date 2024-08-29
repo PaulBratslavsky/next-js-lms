@@ -1,9 +1,14 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { MarkdownText } from "@/components/custom/markdown-text";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-const MediaPlayer = dynamic<React.ComponentProps<typeof import('@/components/custom/media-player').MediaPlayer>>(
-  () => import('@/components/custom/media-player').then((mod) => mod.MediaPlayer),
+const MediaPlayer = dynamic<
+  React.ComponentProps<
+    typeof import("@/components/custom/media-player").MediaPlayer
+  >
+>(
+  () =>
+    import("@/components/custom/media-player").then((mod) => mod.MediaPlayer),
   { ssr: false }
 );
 
@@ -13,24 +18,23 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-  export async function loader(slug: string) {
-    const PUBLIC_TOKEN = process.env.READ_ONLY_STRAPI_API_TOKEN;
-    const { getLessonBySlug } = await import("@/data/loaders");
-    const data = await getLessonBySlug(slug, PUBLIC_TOKEN);
-    const courseData = data?.data[0];
-    return courseData;
-  }
-  
+async function loader(slug: string) {
+  const PUBLIC_TOKEN = process.env.READ_ONLY_STRAPI_API_TOKEN;
+  const { getLessonBySlug } = await import("@/data/loaders");
+  const data = await getLessonBySlug(slug, PUBLIC_TOKEN);
+  const courseData = data?.data[0];
+  return courseData;
+}
 
 export default async function LessonRoute({
-  params
+  params,
 }: {
   readonly params: {
     courseSlug: string;
     lessonSlug: string;
   };
 }) {
-  const data  = await loader(params.lessonSlug);
+  const data = await loader(params.lessonSlug);
 
   const { title, description, content, resources, player, documentId } = data;
   const video = player[0];
@@ -57,7 +61,10 @@ export default async function LessonRoute({
                 </p>
                 {resources && (
                   <div>
-                    <MarkdownText content={resources} className="resources-text" />
+                    <MarkdownText
+                      content={resources}
+                      className="resources-text"
+                    />
                   </div>
                 )}
               </div>

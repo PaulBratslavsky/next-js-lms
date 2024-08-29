@@ -13,7 +13,7 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-export async function loader(slug: string) {
+async function loader(slug: string) {
   const PUBLIC_TOKEN = process.env.READ_ONLY_STRAPI_API_TOKEN;
   const { getCourseBySlug } = await import("@/data/loaders");
   const data = await getCourseBySlug(slug, PUBLIC_TOKEN);

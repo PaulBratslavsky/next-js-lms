@@ -1,7 +1,7 @@
 import { Hero} from "@/components/custom/hero";
 import {Features} from "@/components/custom/features";
 
-export async function loader() {
+async function loader() {
   return { data: mockData };
 }
 
